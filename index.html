@@ -45,6 +45,7 @@
               shimmer: "shimmer 2.5s infinite",
               marquee: "marquee 40s linear infinite",
               "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              "spin-slow": "spin 12s linear infinite",
             },
             keyframes: {
               blob: {
@@ -58,7 +59,7 @@
                 "50%": { transform: "translateY(-20px)" },
               },
               fadeInUp: {
-                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "0%": { opacity: "0", transform: "translateY(30px)" },
                 "100%": { opacity: "1", transform: "translateY(0)" },
               },
               marquee: {
@@ -79,7 +80,19 @@
         scroll-behavior: smooth;
         background-color: #f8fafc; /* Slate 50 */
         color: #0f172a; /* Slate 900 */
+        cursor: none; /* Hide default cursor for custom one */
       }
+      
+      /* Restore default cursor on touch devices */
+      @media (hover: none) and (pointer: coarse) {
+        body {
+          cursor: auto;
+        }
+        .custom-cursor {
+          display: none;
+        }
+      }
+
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Sora', sans-serif;
       }
@@ -105,6 +118,70 @@
         -webkit-backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+      }
+
+      /* Custom Cursor */
+      .custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #7c3aed;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s, background-color 0.3s;
+        mix-blend-mode: difference;
+      }
+      .custom-cursor.hovered {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(124, 58, 237, 0.1);
+        border-color: transparent;
+      }
+
+      /* Spotlight Effect */
+      .spotlight-card {
+        position: relative;
+        overflow: hidden;
+      }
+      .spotlight-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(124, 58, 237, 0.15) 0%, transparent 50%);
+        opacity: 0;
+        transition: opacity 0.5s;
+        pointer-events: none;
+        z-index: 1;
+      }
+      .spotlight-card:hover::before {
+        opacity: 1;
+      }
+
+      /* Tilt 3D Effect */
+      .tilt-card {
+        transition: transform 0.1s ease-out;
+        transform-style: preserve-3d;
+      }
+      .tilt-content {
+        transform: translateZ(20px);
+      }
+
+      /* Scroll Reveal Classes */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
       }
     </style>
   <script type="importmap">
