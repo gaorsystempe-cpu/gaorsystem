@@ -60,7 +60,7 @@ const services = [
     icon: <Database className="w-7 h-7" />,
     title: 'Implementación Odoo',
     description: 'Tu negocio organizado. ERP completo para gestionar todo desde un solo lugar sin estrés.',
-    features: ['Punto de venta (POS)', 'Control de Inventario', 'Facturación SUNAT'],
+    features: ['Software Farmacias', 'Punto de venta (POS)', 'Facturación SUNAT'],
     color: 'bg-blue-50 text-blue-600'
   },
   {

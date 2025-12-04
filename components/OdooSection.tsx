@@ -57,7 +57,7 @@ export const OdooSection: React.FC = () => {
       icon: <Package className="w-8 h-8" />,
       title: "Implementación Completa",
       desc: "Desde la configuración inicial hasta el despliegue final.",
-      items: ["Ventas, Compras e Inventario", "Punto de Venta (POS) Offline", "Contabilidad Peruana", "CRM & Pipelines"],
+      items: ["Gestión de Farmacias (Lotes/Venc.)", "Punto de Venta (POS) Offline", "Contabilidad Peruana", "CRM & Pipelines"],
       color: "text-blue-600 bg-blue-50"
     },
     {
