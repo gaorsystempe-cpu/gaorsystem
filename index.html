@@ -46,6 +46,7 @@
               marquee: "marquee 40s linear infinite",
               "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
               "spin-slow": "spin 12s linear infinite",
+              "scale-in": "scaleIn 0.2s ease-out forwards",
             },
             keyframes: {
               blob: {
@@ -65,6 +66,10 @@
               marquee: {
                 "0%": { transform: "translateX(0)" },
                 "100%": { transform: "translateX(-50%)" },
+              },
+              scaleIn: {
+                "0%": { transform: "scale(0)" },
+                "100%": { transform: "scale(1)" },
               }
             },
           },
